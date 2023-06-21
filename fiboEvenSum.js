@@ -9,3 +9,5 @@ function fiboEvenSum(n) {
     }
     return sum;
   }
+
+  console.log(fiboEvenSum(8));
