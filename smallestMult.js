@@ -9,7 +9,6 @@ function smallestMult(n) {
     for(let i=2;i<n+1;i++){
         result = parseInt((i*result)/gcd(result,i));
     }
-    console.log(result);
     return result;
   }
   
