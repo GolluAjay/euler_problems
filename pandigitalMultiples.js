@@ -1,3 +1,10 @@
+function isPandigital(n,k){
+    for(let i=1;i<=k;i++){
+        if(!n.includes(i)) return false;
+    }
+    return true;
+}
+
 function findDuplicates(temp) {
     let arr1 = temp.split("");
     for (let x = 0; x < arr1.length; x++) {
@@ -32,8 +39,7 @@ function findDuplicates(temp) {
         }
         s += i * j;
       }
-      if (parseInt(s) > largest && s.split("").length === k) {
-          // console.log(i + " " + s);
+      if (parseInt(s) > largest && s.split("").length === k && isPandigital(s,k)) {
           largest = parseInt(s);
       }
       if(i>10**(Math.ceil(k/2))) break;
@@ -42,5 +48,5 @@ function findDuplicates(temp) {
     return largest;
   }
   
-  pandigitalMultiples(8);
+  console.log(pandigitalMultiples(7));
   
