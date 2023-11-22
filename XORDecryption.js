@@ -1,32 +1,32 @@
+function isCharacterPresent(char) {
+  return char >= 32 && char <= 122 && !(char >= 60 && char <= 64);
+}
+
+function fun(a) {
+  let count = [];
+  for (let i = 97; i <= 122; i++) {
+    count = [];
+    for (let value of a) {
+      if (!isCharacterPresent(value ^ i)) {
+        break;
+      }
+      count.push(value ^ i);
+      if (count.length === a.length) return count.reduce((p, v) => p + v, 0);
+    }
+  }
+  return null;
+}
+
 function XORDecryption(arr) {
   const a = [];
   const b = [];
   const c = [];
-  const A = {};
-  const B = {};
-  const C = {};
   for (let i = 0; i < arr.length - 2; i += 3) {
     a.push(arr[i]);
     b.push(arr[i + 1]);
     c.push(arr[i + 2]);
   }
-  a.forEach((v) => {
-    if (v in A) A[v]++;
-    else A[v] = 1;
-  });
-  b.forEach((v) => {
-    if (v in B) B[v]++;
-    else B[v] = 1;
-  });
-  c.forEach((v) => {
-    if (v in C) C[v]++;
-    else C[v] = 1;
-  });
-  console.log(A);
-  console.log(B);
-  console.log(C);
-
-  return true;
+  return fun(a) + fun(b) + fun(c);
 }
 
 // Only change code above this line
